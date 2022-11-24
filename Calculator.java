@@ -40,6 +40,51 @@ class calculator extends JFrame implements ActionListener {
         buttone = new JButton(".");
     }
 
+private static void addActionListeners() {
+        button9.addActionListener(calc);
+        button8.addActionListener(calc);
+        button7.addActionListener(calc);
+        button6.addActionListener(calc);
+        button5.addActionListener(calc);
+        button4.addActionListener(calc);
+        button3.addActionListener(calc);
+        button2.addActionListener(calc);
+        button1.addActionListener(calc);
+        button0.addActionListener(calc);
+        buttone.addActionListener(calc);
+        buttoneq.addActionListener(calc);
+        buttoneq1.addActionListener(calc);
+        buttonmul.addActionListener(calc);
+        buttondiv.addActionListener(calc);
+        buttonsub.addActionListener(calc);
+        buttonadd.addActionListener(calc);
+    }
+
+    private static void addButtons() {
+        jPanel.add(jTextField);
+        jPanel.add(button0);
+        jPanel.add(button1);
+        jPanel.add(button2);
+        jPanel.add(button3);
+        jPanel.add(button4);
+        jPanel.add(button5);
+        jPanel.add(button6);
+        jPanel.add(button7);
+        jPanel.add(button8);
+        jPanel.add(button9);
+        jPanel.add(buttonadd);
+        jPanel.add(buttonsub);
+        jPanel.add(buttonmul);
+        jPanel.add(buttondiv);
+        jPanel.add(buttone);
+        jPanel.add(buttoneq);
+        jPanel.add(buttoneq1);
+
+        jPanel.setBackground(Color.white);
+
+        jFrame.add(jPanel);
+    }
+
 
     public static void main(String args[]) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         jFrame = new JFrame("SE BONUS Calculator");
