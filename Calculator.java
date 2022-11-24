@@ -112,6 +112,66 @@ private static void addActionListeners() {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       
+       String str = e.getActionCommand();
+        double partialResult;
+        if ((str.charAt(0) >= '0' && str.charAt(0) <= '9') || str.charAt(0) == '.') {
+            if (!num2.equals(""))
+                result = result + str;
+            else
+                num1 = num1 + str;
+            jTextField.setText(num1 + num2 + result);
+        }
+        else if (str.charAt(0) == 'C') {
+            num1 = num2 = result = "";
+
+            jTextField.setText(num1 + num2 + result);
+        }
+        else if (str.charAt(0) == '=') {
+
+            if (num2.equals("+")) {
+                partialResult = (Double.parseDouble(num1) + Double.parseDouble(result));
+            }
+            else if (num2.equals("-")) {
+                partialResult = (Double.parseDouble(num1) - Double.parseDouble(result));
+            }
+            else if (num2.equals("/")) {
+                partialResult = (Double.parseDouble(num1) / Double.parseDouble(result));
+            }
+            else {
+                partialResult = (Double.parseDouble(num1) * Double.parseDouble(result));
+            }
+
+            jTextField.setText(num1 + num2 + result + "=" + partialResult);
+
+            num1 = Double.toString(partialResult);
+
+            num2 = result = "";
+        }
+        else {
+            if (num2.equals("") || result.equals(""))
+                num2 = str;
+            else {
+
+                if (num2.equals("+")) {
+                    partialResult = (Double.parseDouble(num1) + Double.parseDouble(result));
+                }
+                else if (num2.equals("-")) {
+                    partialResult = (Double.parseDouble(num1) - Double.parseDouble(result));
+                }
+                else if (num2.equals("/")) {
+                    partialResult = (Double.parseDouble(num1) / Double.parseDouble(result));
+                }
+                else {
+                    partialResult = (Double.parseDouble(num1) * Double.parseDouble(result));
+                }
+
+                num1 = Double.toString(partialResult);
+
+                num2 = str;
+
+                result = "";
+            }
+
+            jTextField.setText(num1 + num2 + result);
     }
 }
