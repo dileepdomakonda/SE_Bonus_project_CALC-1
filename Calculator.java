@@ -2,20 +2,20 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 class calculator extends JFrame implements ActionListener {
-     static JFrame jFrame;
+    static JFrame jFrame;
 
-     static JTextField jTextField;
+    static JTextField jTextField;
     static JButton button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonadd, buttonsub, buttondiv, buttonmul, buttone, buttoneq, buttoneq1;
     String num1, num2, result;
 
     static calculator calc;
 
     static JPanel jPanel;
-    calculator()
-    {
+
+    calculator() {
         num1 = num2 = result = "";
     }
-    
+
     private static void createButtons() {
 
         button0 = new JButton("0");
@@ -40,7 +40,7 @@ class calculator extends JFrame implements ActionListener {
         buttone = new JButton(".");
     }
 
-private static void addActionListeners() {
+    private static void addActionListeners() {
         button9.addActionListener(calc);
         button8.addActionListener(calc);
         button7.addActionListener(calc);
@@ -92,14 +92,14 @@ private static void addActionListeners() {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
 
-         calc = new calculator();
+        calc = new calculator();
 
         jTextField = new JTextField(20);
 
         jTextField.setEditable(false);
         jTextField.setBackground(Color.yellow);
         createButtons();
-        
+
 
         jPanel = new JPanel();
 
@@ -112,7 +112,7 @@ private static void addActionListeners() {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       String str = e.getActionCommand();
+        String str = e.getActionCommand();
         double partialResult;
         if ((str.charAt(0) >= '0' && str.charAt(0) <= '9') || str.charAt(0) == '.') {
             if (!num2.equals(""))
@@ -120,24 +120,19 @@ private static void addActionListeners() {
             else
                 num1 = num1 + str;
             jTextField.setText(num1 + num2 + result);
-        }
-        else if (str.charAt(0) == 'C') {
+        } else if (str.charAt(0) == 'C') {
             num1 = num2 = result = "";
 
             jTextField.setText(num1 + num2 + result);
-        }
-        else if (str.charAt(0) == '=') {
+        } else if (str.charAt(0) == '=') {
 
             if (num2.equals("+")) {
                 partialResult = (Double.parseDouble(num1) + Double.parseDouble(result));
-            }
-            else if (num2.equals("-")) {
+            } else if (num2.equals("-")) {
                 partialResult = (Double.parseDouble(num1) - Double.parseDouble(result));
-            }
-            else if (num2.equals("/")) {
+            } else if (num2.equals("/")) {
                 partialResult = (Double.parseDouble(num1) / Double.parseDouble(result));
-            }
-            else {
+            } else {
                 partialResult = (Double.parseDouble(num1) * Double.parseDouble(result));
             }
 
@@ -146,22 +141,18 @@ private static void addActionListeners() {
             num1 = Double.toString(partialResult);
 
             num2 = result = "";
-        }
-        else {
+        } else {
             if (num2.equals("") || result.equals(""))
                 num2 = str;
             else {
 
                 if (num2.equals("+")) {
                     partialResult = (Double.parseDouble(num1) + Double.parseDouble(result));
-                }
-                else if (num2.equals("-")) {
+                } else if (num2.equals("-")) {
                     partialResult = (Double.parseDouble(num1) - Double.parseDouble(result));
-                }
-                else if (num2.equals("/")) {
+                } else if (num2.equals("/")) {
                     partialResult = (Double.parseDouble(num1) / Double.parseDouble(result));
-                }
-                else {
+                } else {
                     partialResult = (Double.parseDouble(num1) * Double.parseDouble(result));
                 }
 
@@ -173,5 +164,6 @@ private static void addActionListeners() {
             }
 
             jTextField.setText(num1 + num2 + result);
+        }
     }
 }
