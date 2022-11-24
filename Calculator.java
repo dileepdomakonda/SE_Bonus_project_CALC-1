@@ -103,8 +103,8 @@ private static void addActionListeners() {
 
         jPanel = new JPanel();
 
-        //addActionListeners();
-        //addButtons();
+        addActionListeners();
+        addButtons();
 
         jFrame.setSize(500, 500);
         jFrame.show();
