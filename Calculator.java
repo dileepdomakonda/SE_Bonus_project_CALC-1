@@ -37,7 +37,7 @@ class calculator extends JFrame implements ActionListener {
         buttonmul = new JButton("*");
         buttoneq = new JButton("AC");
 
-        buttone = new JButton(".");
+        buttone = new JButton("C");
     }
 
     private static void addActionListeners() {
